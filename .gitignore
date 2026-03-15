@@ -1,0 +1,42 @@
+# --- OS X ---
+.DS_Store
+
+# --- Node / React Native (ahorrofacilmobile) ---
+node_modules/
+npm-debug.log
+yarn-error.log
+.expo/
+dist/
+android/build/
+ios/build/
+*.jsbundle
+
+# --- Python / Flask (BackendAhorro) ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+instance/
+.pytest_cache/
+
+# --- Database ---
+*.db
+*.sqlite
+
+# --- IDEs ---
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Seguridad y Secretos ---
+.env*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+config.py
+!config.example.py
