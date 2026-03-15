@@ -7,4 +7,5 @@ class User(db.Model):
     username = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False) # Agregamos esto
     password = db.Column(db.String(80), nullable=False)
-    # Si no usas fullname y role, puedes quitarlos o dejarlos
+
+    
