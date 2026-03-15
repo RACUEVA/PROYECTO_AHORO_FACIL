@@ -1,42 +1,43 @@
-# --- OS X ---
+# --- Sistema Operativo ---
 .DS_Store
+Thumbs.db
 
-# --- Node / React Native (ahorrofacilmobile) ---
-node_modules/
-npm-debug.log
-yarn-error.log
-.expo/
-dist/
-android/build/
-ios/build/
+# --- Node / React Native (AhorroFacilMobile) ---
+**/node_modules/
+**/android/build/
+**/android/.gradle/
+**/android/app/build/
+**/ios/build/
+**/ios/Pods/
+**/.expo/
+**/dist/
 *.jsbundle
+package-lock.json
 
 # --- Python / Flask (BackendAhorro) ---
-__pycache__/
-*.py[cod]
-*$py.class
-venv/
-env/
-.env
-instance/
-.pytest_cache/
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+**/*.pyd
+**/.venv/
+**/venv/
+**/env/
+**/.env
+**/instance/
+**/.pytest_cache/
 
-# --- Database ---
-*.db
-*.sqlite
+# --- Base de Datos ---
+# Descomenta las siguientes líneas si NO quieres subir tu base de datos local
+# *.db
+# *.sqlite
 
-# --- IDEs ---
-.idea/
+# --- IDEs y Editores ---
 .vscode/
+.idea/
 *.swp
 *.swo
 
-# --- Seguridad y Secretos ---
-.env*
-*.pem
-*.key
-*.p12
-*.pfx
-secrets.json
-config.py
-!config.example.py
+# --- Logs y Temporales ---
+*.log
+**/logs/
+**/tmp/
