@@ -1,17 +1,34 @@
-/**
- * @format
- */
-
-import 'react-native';
+import 'react-native'; 
 import React from 'react';
 import App from '../App';
+import { render, screen } from '@testing-library/react-native';
 
-// Note: import explicitly to use the types shipped with jest.
-import {it} from '@jest/globals';
+// MOCK: Esto simula los servicios nativos para que el test pase
+jest.mock('../src/services/NativeService.js', () => ({
+  NativeService: {
+    tomarFoto: jest.fn(() => Promise.resolve('uri_falsa')),
+    obtenerUbicacion: jest.fn(() => Promise.resolve({ latitude: 0, longitude: 0 })),
+  },
+}));
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+// MOCK: Simula las alertas para que no bloqueen el test
+jest.mock('react-native/Libraries/Alert/Alert', () => ({
+  alert: jest.fn(),
+}));
 
-it('renders correctly', () => {
-  renderer.create(<App />);
+describe('Pruebas de Integración - Pantalla Principal', () => {
+  it('Debe mostrar el título de la aplicación', () => {
+    render(<App />);
+    const titulo = screen.getByText(/AhorroFácil/i);
+    expect(titulo).toBeTruthy();
+  });
+
+  it('Debe renderizar los campos de Login por defecto', () => {
+    render(<App />);
+    const inputEmail = screen.getByPlaceholderText(/Correo Electrónico/i);
+    const botonIngresar = screen.getByText(/Ingresar/i);
+    
+    expect(inputEmail).toBeTruthy();
+    expect(botonIngresar).toBeTruthy();
+  });
 });
