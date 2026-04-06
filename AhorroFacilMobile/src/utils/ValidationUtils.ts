@@ -1,18 +1,21 @@
+// src/utils/ValidationUtils.ts
 import { z } from 'zod';
 
-// Extraemos el esquema para probarlo de forma aislada
 export const registerSchema = z.object({
     fullName: z.string().min(3, "El nombre debe tener al menos 3 caracteres"),
-    email: z.string().email("Formato de correo inválido"),
-    password: z.string().min(8, "La contraseña debe tener 8 caracteres").regex(/[0-9]/, "Debe incluir al menos un número"),
+    email: z.string().email("Ingresa un correo electrónico válido"),
+    password: z.string().min(8, "La contraseña debe tener al menos 8 caracteres")
+        .regex(/[0-9]/, "La contraseña debe incluir al menos un número"),
+    confirmPassword: z.string().min(8, "La confirmación debe tener al menos 8 caracteres")
+}).refine((data) => data.password === data.confirmPassword, {
+    message: "Las contraseñas no coinciden",
+    path: ["confirmPassword"],
 });
 
-// Función de lógica de negocio: Valida si un saldo es positivo (Ejemplo para test)
 export const esSaldoValido = (saldo: number): boolean => {
     return saldo >= 0;
 };
 
-// Función para formatear moneda (Transformación de datos)
 export const formatearMoneda = (valor: number): string => {
-    return `$ ${valor.toFixed(2)}`;
+    return `$ ${valor.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 };

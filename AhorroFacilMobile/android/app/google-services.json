@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "247922332409",
+    "project_id": "ahorrofacilpro",
+    "storage_bucket": "ahorrofacilpro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247922332409:android:cba7925545db1896b54828",
+        "android_client_info": {
+          "package_name": "com.ahorrofacilmobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAor8gxrVbaHYZ0X-aBY3XJhXCIYhcU_2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

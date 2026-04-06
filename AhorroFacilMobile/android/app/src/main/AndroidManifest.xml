@@ -3,12 +3,21 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Permisos para cámara -->
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <!-- Permisos para ubicación -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
-                      android:maxSdkVersion="28" />
+    <!-- Permisos para almacenamiento -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    
+    <!-- Permiso para Android 13+ (API 33) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
       android:name=".MainApplication"
@@ -18,7 +27,9 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme"
       android:supportsRtl="true"
+      android:usesCleartextTraffic="true" 
       tools:replace="android:allowBackup"
+      android:requestLegacyExternalStorage="true"
       tools:targetApi="31">
 
       <activity
@@ -35,5 +46,17 @@
         </intent-filter>
       </activity>
 
+      <!-- FileProvider para compartir imágenes (necesario para react-native-image-picker) -->
+      <provider
+        android:name="androidx.core.content.FileProvider"
+        android:authorities="${applicationId}.provider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/file_paths" />
+      </provider>
+
     </application>
+
 </manifest>
