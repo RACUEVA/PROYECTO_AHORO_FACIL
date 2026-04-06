@@ -1,20 +1,33 @@
-# --- Sistema Operativo ---
+# ============================================
+# SISTEMA OPERATIVO
+# ============================================
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# --- Node / React Native (AhorroFacilMobile) ---
+# ============================================
+# NODE / REACT NATIVE (AhorroFacilMobile)
+# ============================================
 **/node_modules/
 **/android/build/
 **/android/.gradle/
 **/android/app/build/
+**/android/app/*.keystore
+**/android/key.properties
 **/ios/build/
 **/ios/Pods/
 **/.expo/
 **/dist/
 *.jsbundle
 package-lock.json
+yarn.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# --- Python / Flask (BackendAhorro) ---
+# ============================================
+# PYTHON / FLASK (BackendAhorro)
+# ============================================
 **/__pycache__/
 **/*.py[cod]
 **/*.pyo
@@ -23,21 +36,38 @@ package-lock.json
 **/venv/
 **/env/
 **/.env
-**/instance/
+**/instance/*.db
+**/instance/*.sqlite
 **/.pytest_cache/
+**/.coverage
+**/htmlcov/
 
-# --- Base de Datos ---
-# Descomenta las siguientes líneas si NO quieres subir tu base de datos local
-# *.db
-# *.sqlite
+# ============================================
+# BASES DE DATOS (NO SUBIR A GITHUB)
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+**/instance/*.db
+**/instance/*.sqlite
 
-# --- IDEs y Editores ---
+# ============================================
+# IDE Y EDITORES
+# ============================================
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+.project
+.classpath
 
-# --- Logs y Temporales ---
+# ============================================
+# LOGS Y TEMPORALES
+# ============================================
 *.log
 **/logs/
 **/tmp/
+**/temp/
+**/coverage/
+**.cache/
